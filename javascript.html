@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> LOG-IN PAGE </title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
+	<style>
+		#btn
+		{
+		background-color:black;
+		color: red;
+		border-radius: 25px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="text-sucess text-center"></h1>
+		<div class="col-lg-8 m-auto d-block">
+			<form action="#" onsubmit="return validation()" class="bg-light">
+
+				<div class="form-group">
+					<label> Username: </label>
+					<input type="text" name="user" class="form-control" id="userid">
+					<span id="usernamespan" class="text-danger font-weight-bold">
+						
+					</span>
+					
+				</div>
+				<div class="form-group">
+					<label> Password: </label>
+					<input type="password" name="pass" class="form-control" id="passid">
+					<span id="passwordspan" class="text-danger font-weight-bold"></span>
+				</div>
+				<div class="form-group">
+					<label> Confirm password: </label>
+					<input type="password" name="conpass" class="form-control" id="conpassid">
+					<span id="conpasspan" class="text-red font-weight-bold"></span>
+
+				</div>
+				<div class="form-group">
+					<label> Phone: </label>
+				<select>
+					<option>+91</option>
+					<option>+92</option>
+					<option>+93</option>
+					<option>+94</option>
+				</select>
+					<input type="phone" name="mobile" class="form-control" id="phoneid">
+					<span id="phoneidspan" class="text-red font-weight-bold"></span>
+
+				</div>
+				<div class="form-group">
+					<label> Gender: </label>
+					<input type="radio" name="Gender" class="form-control" id="genderid">Male 
+					<input type="radio" name="Gender" class="form-control" id="genderid">Female
+					<input type="radio" name="Gender" class="form-control" id="genderid">Transgender
+					<span id="genderidspan" class="text-red font-weight-bold">
+
+				</div>
+				<div class="form-group">
+					<label> Email: </label>
+					<input type="Email" name="email" class="form-control" id="emailid">
+					<span id="emailidspan" class="text-red font-weight-bold">
+				</div>
+				
+				<input type="submit" name="submit" value="submit" id="btn" class="btn btn-sucess">
+				
+			</form>
+			
+		</div>
+		
+	</div>
+
+	<script type="text/javascript">
+		
+		function validation(){
+			
+
+			var user=document.getElementById('userid').value;
+			var pass=document.getElementById('passid').value;
+			var confpass = document.getElementById('conpassid').value;
+			var phone = document.getElementById('phoneid').value;
+			var gender = document.getElementById('genderid').value;
+			var email = document.getElementById('emailid').value;
+			
+			if (user==""){
+				document.getElementById('usernamespan').innerHTML=" *** Please give username....";
+				return false;
+
+			}
+			if ((user.length <=2) || (user.length >30)){
+				document.getElementById('usernamespan').innerHTML =" *** username must be between 3 to 30";
+				return false;
+			}
+			if (!isNaN(user)){
+				document.getElementById('usernamespan').innerHTML =" *** Only characters are allowed...";
+				return false;
+
+
+			}
+
+			if (pass==""){
+				document.getElementById('passwordspan').innerHTML ="***Please give password..."
+				return false;
+
+			}
+			if((pass.length <6) || (pass.length >20)){
+				document.getElementById('passwordspan').innerHTML ="*** Password must be 6 digit..."
+				return false;
+			}
+			if (confpass==""){
+				document.getElementById('conpasspan').innerHTML ="***Please confirm the password..."
+				return false;
+
+			}
+			if (confpass!=pass){
+				document.getElementById('conpasspan').innerHTML ="***password doesn't match..."
+				return false;
+			}
+			
+			if (phone==""){
+				document.getElementById('phoneidspan').innerHTML ="***Please give phone number..."
+				return false;
+
+			}
+			if (isNaN(phone)){
+				document.getElementById('phoneidspan').innerHTML ="***Characters are not allowed..."
+				return false;
+
+			}
+			if (phone.length!=10) {
+				document.getElementById('phoneidspan').innerHTML ="***Phone number should be 10 digit..."
+				return false;
+
+			}
+
+			if (email==""){
+				document.getElementById('emailidspan').innerHTML ="***Please give email id...."
+				return false;
+
+			}
+		}
+
+	</script>
+
+</body>
+</html>
